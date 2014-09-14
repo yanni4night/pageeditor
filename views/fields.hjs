@@ -30,7 +30,7 @@
       <span id="checkUrl" class="url hide">{{{url}}}</span>
       <div class="row">
         <button type="submit">预览</button>
-        <button type="button">生成</button>
+        <button type="button"><s>生成</s></button>
       </div>
     </form>
     <script>var checkUrl = {{checkUrl}};</script>

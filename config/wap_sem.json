@@ -14,11 +14,11 @@
     }, {
         "name": "topBg",
         "string": "url",
-        "desc": "顶部图(640*736)"
+        "desc": "顶部图(640*736,jpg最佳)"
     }, {
         "name": "bottomBg",
         "string": "url",
-        "desc": "底部图(640*736)"
+        "desc": "底部图(640*1266,jpg最佳)"
     }, {
         "name": "downloadUrl",
         "string": "url",
@@ -30,6 +30,6 @@
     }, {
         "name": "bgColor",
         "color": true,
-        "desc": "背景色"
+        "desc": "背景色(与图相近)"
     }]
 }
