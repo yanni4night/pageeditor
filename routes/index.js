@@ -42,8 +42,13 @@ router.get('/', function(req, res) {
     });
 });
 
-router.all('/loadconfig', function(req, res) {
+router.all('/loadconfig', function(req, res, next) {
     var f = req.param('f');
+    if (!f) {
+        var err = new Error('f is required');
+        err.status = 500;
+        return next(err);
+    }
     var fjson = path.join(__dirname, '..', 'config', f);
     return fs.readFile(fjson, {
         encoding: 'utf-8'
@@ -52,17 +57,31 @@ router.all('/loadconfig', function(req, res) {
         try {
             obj = JSON.parse(content);
         } catch (e) {}
+        obj.f = f;
         return res.render('fields', obj);
     });
 });
 
-router.post('/preview', function(req, res) {
-    return res.json(req.body);
+router.post('/preview', function(req, res, next) {
+    var f = req.body.f;
+
+    if (!/([\w-]+)\.json/.test(f)) {
+        var err = new Error('f is illegal');
+        err.status = 500;
+        return next(err);
+    }
+
+    delete req.body.f;
+
+    return res.render('tpl/' + RegExp.$1, req.body);
 });
 
+//Check if a url is 404
 router.get('/checkurlexist', function(req, res) {
-    if(!/https?:\/\//.test(req.query.url)){
-        return res.json({exist:false});
+    if (!/https?:\/\//.test(req.query.url)) {
+        return res.json({
+            exist: false
+        });
     }
     return request(req.query.url, function(err, response) {
         return res.json({

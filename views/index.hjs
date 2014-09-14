@@ -11,7 +11,6 @@
     <div class="vcard unselectable">
         <h3 class="username">{{username}}</h3>
         <a href="#" class="start">点击开始</a>
-       <!--  <img src="/images/logined.png" class="ab"/> -->
     </div>
 
     <div class="control unselectable" id="ctrl-list">

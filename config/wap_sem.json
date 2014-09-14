@@ -1,6 +1,6 @@
 {
     "name": "手游SEM",
-    "date": "2014-09-14",
+    "date": "2014-09-15",
     "url": "http://wan.sogou.com/static/sds_wap/{{name}}.html",
     "checkUrl": true,
     "fields": [{
