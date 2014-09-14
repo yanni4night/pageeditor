@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta id="viewport" name="viewport"
+              content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <title>{{gameName}}  ——搜狗游戏</title>
+        <meta name="copyright" content="g.sogou.com"/>
+        <meta name="keywords" content="搜狗游戏,搜狗活动,sogougame,{{gameName}},{{pageName}}"/>
+        <style type="text/css">
+         html, body, div, span, applet, object, iframe,
+         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+         a, abbr, acronym, address, big, cite, code,
+         del, dfn, em, img, ins, kbd, q, s, samp,
+         small, strike, strong, sub, sup, tt, var,
+         b, u, i, center,
+         dl, dt, dd, ol, ul, li,
+         fieldset, form, label, legend,
+         table, caption, tbody, tfoot, thead, tr, th, td,
+         article, aside, canvas, details, embed, 
+         figure, figcaption, footer, header, hgroup, 
+         menu, nav, output, ruby, section, summary,
+         time, mark, audio, video {
+             margin: 0;
+             padding: 0;
+             border: 0;
+             font-size: 100%;
+             vertical-align: baseline;
+         }
+         article, aside, details, figcaption, figure, 
+         footer, header, hgroup, menu, nav, section {display: block;}
+         body {line-height: 1;}
+         ol, ul {list-style: none;}
+         blockquote, q {quotes: none;}
+         blockquote:before, blockquote:after,
+         q:before, q:after {content: '';content: none;}
+         body{font:12px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1","Microsoft JhengHei",Tahoma,Verdana,Arial,sans-serif ;}
+        .top{background:url({{topBg}}) no-repeat center center;background-size:320px 368px;height:368px;}
+        .bottom{background:url({{bottomBg}}) no-repeat center center;background-size:320px 632px;height:632px;}
+        .top .link{width:153px;height:43px;top:309px}
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="top">
+                <a id="Link" class="link" href="{{downloadUrl}}" target="_blank"></a>
+            </div>
+        </div>
+    </body>
+    <script src="http://p0.123.sogou.com/u/js/mursa.js"></script>
+    <script type="text/javascript">
+        window.pageCode = new Date().getFullYear() + '_sds_wap_{{pageName}}';
+        var spb_vars = {
+            productid: "wan",
+            ptype: "wap-game",
+            pcode: pageCode
+        }
+    </script>
+    <!--script type="text/xjavascript">
+    document.getElementById('Link').href = 'http://img.wan.sogou.com/dl/150/hjsds_shouyousem_'+ location.search.match(/apk=(\d+)/i)[1] +'.apk';
+    </script-->
+    <script src="http://d.123.sogou.com/u/pb/pb.580599.js"></script>
+</html>

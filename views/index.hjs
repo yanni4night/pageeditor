@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
     <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="author" content="yanni4night@gmail.com"/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script type="text/javascript" src="/javascripts/jquery-2.1.1.min.js"></script>
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <div class="vcard">
+        <h3 class="username">{{username}}</h3>
+        <a href="#" class="start">点击开始</a>
+        <img src="/images/logined.png" class="ab"/>
+    </div>
+
+    <div class="control" id="ctrl-list">
+        <div class="scroll">
+            <ul>
+                {{#profiles}}<li>{{.}}</li>{{/profiles}}
+            </ul>
+        </div>
+    </div>
+    <div class="control second" id="ctrl-fields">
+      <div class="inner"></div>
+    </div>
   </body>
+  <script src="/javascripts/index.js"></script>
 </html>

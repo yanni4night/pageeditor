@@ -1,0 +1,25 @@
+{   
+    "name":"手游SEM",
+    "date":"2014-09-14",
+    "fields": [{
+        "name": "gameName",
+        "type": "string",
+        "desc": "游戏名称(中文)"
+    }, {
+        "name": "pageName",
+        "type": "word",
+        "desc": "页面名称(英文)"
+    }, {
+        "name": "topBg",
+        "type": "url",
+        "desc": "顶部图(640*736)"
+    }, {
+        "name": "bottomBg",
+        "type": "url",
+        "desc": "底部图(640*736)"
+    }, {
+        "name": "downloadUrl",
+        "type": "url",
+        "desc": "下载链接"
+    }]
+}
