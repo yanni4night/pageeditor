@@ -56,18 +56,13 @@ body {
 
 .vcard{
     &.trans-corner{
-        img{
-            display: none;
-        }
         .username{
             font:20px/1.5 arial,sans-serif;
         }
         .start{display: none;}
         &:hover{
             background: rgba(255,255,255,0.2);
-            color:#fff;
         }
-        background:  rgba(255,255,255,0.8);
         left: 0;
         top:0 !important;
         width: 150px;
@@ -78,22 +73,15 @@ body {
          top:50%;
          .transition(.5s);
     }
-    img{
-        &.trans-up{
-             transform:rotateZ(-25deg) scale(1);
-             opacity: 1;
-        }
-        &.trans-left{
-            bottom: 150px;
-        }
-        transform:rotateZ(-35deg) scale(5);
-        opacity: 0;
-        width: 100px;
-        right: 20px;
-        bottom: 20px;
-        .transition(.5s);
-    }
     .username{
+        &.trans-up{
+            transform: scale(1);
+            opacity: 1;
+       }
+       .transition(.5s);
+        transform: scale(5);
+        color: #fff;
+        opacity: 0;
         font:50px/2 'the_hitregular',arial,sans-serif;
     }
     .start{
@@ -104,7 +92,7 @@ body {
             margin-top: 30px;
         }
          .transition(.7s);
-        background: #333;
+        background: rgba(3,3,3,.7);
         display: block;
         margin: 0 auto;
         color:#fff;
@@ -116,12 +104,11 @@ body {
     }
     .transition(1s);
     text-align: center;
-    background: #fff;
+    background: rgba(0,0,0,0.5);
     width: @vcardWidth;
     height: @vcardHeight;
     color:#333;
     position: fixed;
-    overflow:hidden;
     top:-webkit-calc(100% + (@vcardHeight/2));
     left: 50%;
     margin-left: -(@vcardWidth/2);

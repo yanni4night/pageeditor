@@ -55,17 +55,15 @@ setTimeout(function() {
     var $ = window.jQuery;
 
     var imgEntity = new TransEntity({
-        $entity: $('.vcard img'),
+        $entity: $('.vcard .username'),
         transClass: ['trans-up', 'trans-left'],
         onComplete: function(idx) {
             switch (idx) {
                 case 1:
-                    setTimeout((function() {
-                        this.next()
-                    }).bind(this), .2e3);
+                    startBtnEntity.next();
                     break;
                 case 2:
-                    startBtnEntity.next();
+                    //startBtnEntity.next();
                 default:
             }
         }
