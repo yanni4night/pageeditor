@@ -27,7 +27,7 @@
     $('input[name="pageName"]').change(function(e) {
       var key = $(this).val().trim();
       key && checkUrl(key, function(exist) {
-        console.log('exist', exist);
+        exist&&$(e.target).next('.tip').text('线上已存在');
       });
     });
   }
