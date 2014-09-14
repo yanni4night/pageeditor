@@ -7,7 +7,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script type="text/javascript" src="/javascripts/jquery-2.1.1.min.js"></script>
   </head>
-  <body>
+  <body data-bgindex="{{bgIndex}}" style="background-image:url(/images/desktop/{{bgIndex}}.jpg);">
     <div class="vcard">
         <h3 class="username">{{username}}</h3>
         <a href="#" class="start">点击开始</a>
@@ -17,12 +17,12 @@
     <div class="control" id="ctrl-list">
         <div class="scroll">
             <ul>
-                {{#profiles}}<li>{{.}}</li>{{/profiles}}
+                {{#profiles}}<li data-file="{{file}}">{{name}}[{{date}}]</li>{{/profiles}}
             </ul>
         </div>
     </div>
     <div class="control second" id="ctrl-fields">
-      <div class="inner"></div>
+      <iframe name="prop-iframe" allowTransparency="true" scrolling="yes" class="inner"></iframe>
     </div>
   </body>
   <script src="/javascripts/index.js"></script>

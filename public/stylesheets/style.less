@@ -1,13 +1,6 @@
 
 @import "reset.less";
 
-body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background: url(/images/starsky.jpg) top center no-repeat;
-    background-size: 100% auto;
-    height: 100%; 
-}
-
 a {
   color: #00B7FF;
 }
@@ -36,9 +29,6 @@ a {
     -o-transform:rotateZ(@r);
     transform:rotateZ(@r);
 }
-.shadow{
-    /*-webkit-box-reflect:below 0 -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),color-stop(0.5,rgba(255,255,255,0.25)),to(rgba(255,255,255,0.5)));*/
-}
 
 .transition(@time:2s){
     -o-transition:all @time; 
@@ -48,12 +38,12 @@ a {
     transition:all @time; 
 }
 
-.animation(@name,@time:2s){
-    -webkit-animation: @name @time ease-in;
-    -moz-animation: @name @time ease-in;
-    -ms-animation: @name @time ease-in;
-    -o-animation: @name @time ease-in;
-    animation: @name @time ease-in;
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: url(/images/desktop/1.jpg) top center no-repeat;
+    background-size: 100% auto;
+    height: 100%;
+    .transition();
 }
 
 @vcardWidth:400px;
@@ -140,7 +130,7 @@ a {
                 &:last-child{
                     border-bottom: 0;
                 }
-                &:hover{
+                &:hover,&.hover{
                     background: #444;
                 }
                 list-style: none;
@@ -159,7 +149,8 @@ a {
     }
     .inner{
         height: 100%;
-         border: 1px solid #ccc;
+        width: 100%;
+        border: 1px solid #ccc;
     }
     &.trans-top{
         top: 50%;
@@ -171,8 +162,9 @@ a {
     &.second{
         margin-left: 30px;
     }
-
+    &:hover{background: rgba(3,3,3,0.8);}
     .transition();
+    background: rgba(3,3,3,0.5);
     width: 400px;
     height: 400px;
     position: fixed;
@@ -180,7 +172,6 @@ a {
     left: 50%;
     margin-top: -200px;
     margin-left: -200px;
-    background: #333;
     border-radius: 10px;
     padding: 10px;
 }

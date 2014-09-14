@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>{{ pageName }}</title>
+    <meta name="author" content="yanni4night@gmail.com"/>
+    <link rel='stylesheet' href='/stylesheets/fields.css'/>
+    <script type="text/javascript" src="/javascripts/jquery-2.1.1.min.js"></script>
+  </head>
+  <body>
+    <form action="/preview" target="_blank" autocomplete="off" method="post">
+      {{#fields}}
+      <div class="row">
+        <label for="">{{desc}}</label><input type="text" name="{{name}}" required="required"/>
+      </div>
+      {{/fields}}
+      <div class="row">
+        <button type="submit">预览</button>
+        <button type="button">生成</button>
+      </div>
+    </form>
+  </body>
+</html>

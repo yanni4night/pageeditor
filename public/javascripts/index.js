@@ -15,8 +15,8 @@ var EVT_TRANSITIONEND = 'webkitTransitionEnd mozTransitionEnd msTransitionEnd tr
 //we have to assume that all properties are done in a transition
 function TransEntity(opt) {
     opt = this.opt = $.extend({
-        $entity:null,
-        init:$.noop,
+        $entity: null,
+        init: $.noop,
         transClass: ['trans-on'],
         onComplete: $.noop
     }, opt || {});
@@ -31,8 +31,7 @@ function TransEntity(opt) {
     opt.init.call(this);
 
     opt.$entity.on(EVT_TRANSITIONEND, function(e) {
-        if(!endCache[transIndex])
-        {
+        if (!endCache[transIndex]) {
             opt.onComplete.call(self, transIndex);
             endCache[transIndex] = true;
         }
@@ -47,7 +46,7 @@ function TransEntity(opt) {
         ++transIndex;
     };
 
-    this.prev = function(){
+    this.prev = function() {
 
     };
 }
@@ -81,7 +80,7 @@ setTimeout(function() {
                     imgEntity.next();
                     break;
                 case 2:
-                    
+
                     break;
                 default:
             }
@@ -91,17 +90,17 @@ setTimeout(function() {
 
 
     var startBtnEntity = new TransEntity({
-        $entity:$('a.start'),
-        transClass:['trans-show','trans-down'],
-        init:function(){
-            this.opt.$entity.click(function(e){
+        $entity: $('a.start'),
+        transClass: ['trans-show', 'trans-down'],
+        init: function() {
+            this.opt.$entity.click(function(e) {
                 e.preventDefault();
                 vcardEntity.next();
                 ctrlEntity.next();
             });
         },
-        onComplete:function(idx){
-            switch(idx){
+        onComplete: function(idx) {
+            switch (idx) {
                 case 1:
                     this.next();
                     break;
@@ -111,42 +110,78 @@ setTimeout(function() {
 
 
     var ctrlEntity = new TransEntity({
-        $entity:$('#ctrl-list'),
-        transClass:['trans-top','trans-left'],
-        init:function(){
-            var  self = this;
-            this.opt.$entity.delegate('li','click',function(e){
-                console.log(this);
-                if(!self.walked){
+        $entity: $('#ctrl-list'),
+        transClass: ['trans-top', 'trans-left'],
+        init: function() {
+            var self = this;
+
+            $("<form/>", {
+                id: 'prop-form',
+                action: '/loadconfig',
+                target: 'prop-iframe',
+                'class': 'hide'
+            }).append($('<input/>', {
+                id: 'f',
+                name: 'f'
+            })).appendTo($(document.body));
+
+            self.opt.$entity.delegate('li', 'click', function(e) {
+
+                if (!self.walked) {
                     self.walked = true;
                     self.next();
                     fieldsEntity.next();
                 }
+
+                self.opt.$entity.find('li').removeClass('hover');
+                $(this).addClass('hover');
+
+                var f = $(this).attr('data-file');
+                $('#f').val(f);
+                document.getElementById('prop-form').submit();
             });
 
         },
-        onComplete:function(idx){
-            switch(idx){
-                case 1:break;
-                case 2:break;
+        onComplete: function(idx) {
+            switch (idx) {
+                case 1:
+                    break;
+                case 2:
+                    break;
             }
         }
     });
 
     var fieldsEntity = new TransEntity({
-        $entity:$('#ctrl-fields'),
-        transClass:['trans-top','trans-right'],
-        init:function(){
-        },
-        onComplete:function(idx){
-            switch(idx){
-                case 1:break;
-                case 2:break;
+        $entity: $('#ctrl-fields'),
+        transClass: ['trans-top', 'trans-right'],
+        init: function() {},
+        onComplete: function(idx) {
+            switch (idx) {
+                case 1:
+                    break;
+                case 2:
+                    break;
             }
         }
     });
 
-
     vcardEntity.next();
 
 }, .5e3);
+
+//Change bg
+! function() {
+    var startBgIndex = $(document.body).attr("data-bgindex") | 0;
+    var getNextBg = function() {
+        var url = '/images/desktop/' + ++startBgIndex + '.jpg';
+        new Image().src = url;
+        return url;
+    };
+
+    var img = getNextBg();
+    setInterval(function() {
+        $(document.body).css('background-image', 'url(' + img + ')');
+        img = getNextBg();
+    }, 1.2e5);
+}();
