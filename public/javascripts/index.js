@@ -174,7 +174,7 @@ setTimeout(function() {
 ! function() {
     var startBgIndex = $(document.body).attr("data-bgindex") | 0;
     var getNextBg = function() {
-        var url = '/images/desktop/' + ++startBgIndex + '.jpg';
+        var url = '/images/desktop/' + ((++startBgIndex)%10) + '.jpg';
         new Image().src = url;
         return url;
     };

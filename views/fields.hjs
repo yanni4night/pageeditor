@@ -11,7 +11,19 @@
     <form action="/preview" target="_blank" autocomplete="off" method="post">
       {{#fields}}
       <div class="row">
-        <label for="">{{desc}}</label><input type="text" name="{{name}}" required="required"/>
+        <label for="">{{desc}}</label>
+          {{#string}}
+          <input type="text" name="{{name}}" required="required"/>
+          {{/string}}
+
+          {{#word}}
+          <input type="text" name="{{name}}" required="required"/>
+          {{/word}}
+
+          {{#boolean}}
+          <input type="checkbox" name="{{name}}"/>
+          {{/boolean}}
+
       </div>
       {{/fields}}
       <div class="row">

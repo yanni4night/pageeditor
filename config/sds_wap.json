@@ -1,25 +1,36 @@
-{   
-    "name":"手游SEM",
-    "date":"2014-09-14",
+{
+    "name": "手游SEM",
+    "date": "2014-09-14",
     "fields": [{
         "name": "gameName",
-        "type": "string",
+        "string": true,
+        "boolean": false,
         "desc": "游戏名称(中文)"
     }, {
         "name": "pageName",
-        "type": "word",
+        "string": false,
+        "word": true,
+        "boolean": false,
         "desc": "页面名称(英文)"
     }, {
         "name": "topBg",
-        "type": "url",
+        "string": true,
+        "boolean": false,
         "desc": "顶部图(640*736)"
     }, {
         "name": "bottomBg",
-        "type": "url",
+        "string": true,
+        "boolean": false,
         "desc": "底部图(640*736)"
     }, {
         "name": "downloadUrl",
-        "type": "url",
+        "string": true,
+        "boolean": false,
         "desc": "下载链接"
+    }, {
+        "name": "hasBottom",
+        "string": false,
+        "boolean": true,
+        "desc": "是否需要底部"
     }]
 }

@@ -52,4 +52,8 @@ router.all('/loadconfig', function(req, res) {
     });
 });
 
+router.post('/preview',function(req,res){
+    return res.json(req.body);
+});
+
 module.exports = router;
