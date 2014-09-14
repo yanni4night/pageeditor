@@ -36,7 +36,7 @@
          blockquote, q {quotes: none;}
          blockquote:before, blockquote:after,
          q:before, q:after {content: '';content: none;}
-         body{font:12px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1","Microsoft JhengHei",Tahoma,Verdana,Arial,sans-serif ;}
+         body{font:12px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1","Microsoft JhengHei",Tahoma,Verdana,Arial,sans-serif ;background-color: {{bgColor}};}
         .top{background:url({{topBg}}) no-repeat center center;background-size:320px 368px;height:368px;}
         .bottom{background:url({{bottomBg}}) no-repeat center center;background-size:320px 632px;height:632px;}
         .top .link{width:153px;height:43px;top:309px}

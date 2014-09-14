@@ -11,25 +11,28 @@
     <form action="/preview" target="_blank" autocomplete="off" method="post">
       {{#fields}}
       <div class="row">
-        <label for="">{{desc}}</label>
           {{#string}}
-          <input type="text" name="{{name}}" required="required"/>
+          <input type="text" name="{{name}}" required="required" data-type="{{string}}" placeholder="{{desc}}"/><b class="tip"></b>
           {{/string}}
 
-          {{#word}}
-          <input type="text" name="{{name}}" required="required"/>
-          {{/word}}
+          {{#color}}
+          <label for="">{{desc}}</label>
+          <input type="color" name="{{name}}" required="required"/>
+          {{/color}}
 
           {{#boolean}}
+          <label for="">{{desc}}</label>
           <input type="checkbox" name="{{name}}"/>
           {{/boolean}}
-
       </div>
       {{/fields}}
+      <span id="checkUrl" class="url hide">{{{url}}}</span>
       <div class="row">
         <button type="submit">预览</button>
         <button type="button">生成</button>
       </div>
     </form>
+    <script>var checkUrl = {{checkUrl}};</script>
+    <script src="/javascripts/fields.js"></script>
   </body>
 </html>

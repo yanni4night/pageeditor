@@ -1,36 +1,35 @@
 {
     "name": "手游SEM",
     "date": "2014-09-14",
+    "url": "http://wan.sogou.com/static/sds_wap/{{name}}.html",
+    "checkUrl": true,
     "fields": [{
         "name": "gameName",
-        "string": true,
-        "boolean": false,
+        "string": "string",
         "desc": "游戏名称(中文)"
     }, {
         "name": "pageName",
-        "string": false,
-        "word": true,
-        "boolean": false,
+        "string": "word",
         "desc": "页面名称(英文)"
     }, {
         "name": "topBg",
-        "string": true,
-        "boolean": false,
+        "string": "url",
         "desc": "顶部图(640*736)"
     }, {
         "name": "bottomBg",
-        "string": true,
-        "boolean": false,
+        "string": "url",
         "desc": "底部图(640*736)"
     }, {
         "name": "downloadUrl",
-        "string": true,
-        "boolean": false,
+        "string": "url",
         "desc": "下载链接"
     }, {
         "name": "hasBottom",
-        "string": false,
         "boolean": true,
         "desc": "是否需要底部"
+    }, {
+        "name": "bgColor",
+        "color": true,
+        "desc": "背景色"
     }]
 }
