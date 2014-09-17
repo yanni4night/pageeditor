@@ -1,6 +1,7 @@
 {
     "name": "手游SEM",
     "date": "2014-09-15",
+    "desc":"支持单下载链接与多下载链接，如果是多下载链接，请将URL中要使用apk参数的部分用{apkid}代替，如http://dl.com/cdn/prefix_{apkid}.apk",
     "url": "http://wan.sogou.com/static/sds_wap/{{name}}.html",
     "ctrljs":"sds_wap.js",
     "checkUrl": true,

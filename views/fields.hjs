@@ -9,6 +9,7 @@
   </head>
   <body>
     <form action="/preview" target="_blank" autocomplete="off" method="post">
+      <p class="desc">{{desc}}</p>
       <input type="hidden" name="f" value="{{f}}"/>
       {{#fields}}
       <div class="row">
