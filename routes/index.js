@@ -2,8 +2,21 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var fs = require('fs');
-
+var exec = require('child_process').exec;
+var async = require('async');
+var Hogan = require('hjs');
 var request = require('request');
+var mkdirp = require('mkdirp');
+var rmdir = require('rmdir');
+
+var TARGET_IP;
+var DEV = true;
+if (process.env.NODE_ENV == 'development') {
+    TARGET_IP = '10.12.143.85';
+} else {
+    DEV = false;
+    TARGET_IP = '10.11.201.212';
+}
 
 router.get('/', function(req, res) {
 
@@ -74,6 +87,59 @@ router.post('/preview', function(req, res, next) {
     delete req.body.f;
 
     return res.render('tpl/' + RegExp.$1, req.body);
+});
+
+router.post('/create', function(req, res) {
+    var payload = req.body;
+
+    if (!payload.f || !payload.pageName) {
+        return res.json({
+            status: -1,
+            msg: '缺少参数'
+        });
+    }
+
+    var f = payload.f.replace(/\.json$/, '');
+    var tmpDir = path.join(__dirname, '..', 'tmp', f);
+    var destFile = path.join(tmpDir, payload.pageName + '.html');
+    var output;
+    async.series([
+
+        function(cb) {
+            try {
+                output = Hogan.compile(fs.readFileSync(path.join(__dirname, '..', 'views/tpl', f + '.hjs'), {
+                    encoding: 'utf-8'
+                })).render(payload);
+                cb(null);
+            } catch (e) {
+                cb(e);
+            }
+        },
+        function(cb) {
+            if (!fs.existsSync(tmpDir)) {
+                return mkdirp(tmpDir, cb);
+            } else cb(null);
+        },
+        function(cb) {
+            return fs.writeFile(destFile, output, cb);
+        },
+        function(cb) {
+            return exec('rsync -avz ' + tmpDir + ' root@' + TARGET_IP + ':/search/wan/webapp/static/', cb);
+        },
+        function(cb){
+            rmdir(tmpDir,function(){});
+            cb();
+        }
+
+    ], function(err) {
+        return res.json({
+            status: err ? -1 : 0,
+            msg: err ? err.message : 'success'
+        });
+    });
+
+
+
 });
 
 //Check if a url is 404

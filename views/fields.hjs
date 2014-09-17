@@ -30,10 +30,13 @@
       <span id="checkUrl" class="url hide">{{{url}}}</span>
       <div class="row">
         <button type="submit">预览</button>
-        <button type="button"><s>生成</s></button>
+        <button id="create" type="button">生成</button>
       </div>
     </form>
     <script>var checkUrl = {{checkUrl}};</script>
+    {{#ctrljs}}
+    <script src="/javascripts/config/{{ctrljs}}"></script>
+    {{/ctrljs}}
     <script src="/javascripts/fields.js"></script>
   </body>
 </html>

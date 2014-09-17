@@ -9,29 +9,6 @@
  * @version 0.1.0
  * @since 0.1.0
  */
-! function() {
-
-  function checkUrl(name, cb) {
-    $.ajax({
-      url: '/checkurlexist',
-      data: {
-        url: $('#checkUrl').text().trim().replace('{{name}}', name)
-      },
-      dataType: 'json'
-    }).done(function(data) {
-      cb(!!data.exist);
-    });
-  }
-
-  if (window.checkUrl) {
-    $('input[name="pageName"]').change(function(e) {
-      var key = $(this).val().trim();
-      key && checkUrl(key, function(exist) {
-        exist&&$(e.target).next('.tip').text('线上已存在');
-      });
-    });
-  }
-}();
 
 
 ! function() {
@@ -59,8 +36,23 @@
       e.preventDefault();
       return false;
     }
-  }).delegate('input','click',function(e){
-    $(form).find('tip').empty();
-  });
 
+  }).delegate('input','click',function(e){
+    $('form').find('tip').empty();
+  });
+  //create
+  $('#create').click(function(e){
+        $.ajax({
+      url:'/create',
+      type:'post',
+      data: $('form').serialize(),
+      dataType: 'json'
+    }).done(function(data) {
+      if(0!=data.status){
+        alert(data.msg);
+      }else alert('生成成功');
+    }).fail(function(jqXHR,error) {
+      alert(error);
+    });
+  });
 }();

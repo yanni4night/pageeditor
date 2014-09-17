@@ -2,6 +2,7 @@
     "name": "手游SEM",
     "date": "2014-09-15",
     "url": "http://wan.sogou.com/static/sds_wap/{{name}}.html",
+    "ctrljs":"sds_wap.js",
     "checkUrl": true,
     "fields": [{
         "name": "gameName",
