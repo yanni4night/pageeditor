@@ -7,23 +7,23 @@
     "fields": [{
         "name": "gameName",
         "string": "string",
-        "desc": "游戏名称(中文)"
+        "desc": "游戏名称(中文)，如3D坦克"
     }, {
         "name": "pageName",
         "string": "word",
-        "desc": "页面名称(英文)"
+        "desc": "页面名称(英文)，如mkift"
     }, {
         "name": "topBg",
         "string": "url",
-        "desc": "顶部图(640*736,jpg最佳)"
+        "desc": "顶部图(640*736,jpg最佳)，http://..."
     }, {
         "name": "bottomBg",
         "string": "url",
-        "desc": "底部图(640*1266,jpg最佳)"
+        "desc": "底部图(640*1266,jpg最佳)，http://..."
     }, {
         "name": "downloadUrl",
         "string": "url",
-        "desc": "下载链接"
+        "desc": "下载链接，http://..."
     }, {
         "name": "hasBottom",
         "boolean": true,
@@ -31,6 +31,6 @@
     }, {
         "name": "bgColor",
         "string": true,
-        "desc": "背景色(与图相近)"
+        "desc": "背景色(与图相近)，如#1FF09D"
     }]
 }
