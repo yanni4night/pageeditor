@@ -38,7 +38,7 @@
     }
 
   }).delegate('input', 'click', function(e) {
-    $('form').find('tip').empty();
+    $('form').find('.tip').empty();
   });
   //create
   $('#create').click(function(e) {
