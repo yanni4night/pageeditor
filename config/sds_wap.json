@@ -30,7 +30,7 @@
         "desc": "是否需要底部"
     }, {
         "name": "bgColor",
-        "color": true,
+        "string": true,
         "desc": "背景色(与图相近)"
     }]
 }
