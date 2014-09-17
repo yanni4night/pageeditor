@@ -126,8 +126,15 @@ router.post('/create', function(req, res) {
         function(cb) {
             return exec('rsync -avz ' + tmpDir + ' root@' + TARGET_IP + ':/search/wan/webapp/static/', cb);
         },
-        function(cb){
-            rmdir(tmpDir,function(){});
+        function(cb) {
+            if (DEV) {
+                return cb(null);
+            } else {
+                exec("ssh root@10.11.201.212 'sh /search/script/publishscript/rsync_static2m1_new.sh static/" + f + "'", cb);
+            }
+        },
+        function(cb) {
+            rmdir(tmpDir, function() {});
             cb();
         }
 
