@@ -10,12 +10,15 @@ var mkdirp = require('mkdirp');
 var rmdir = require('rmdir');
 
 var TARGET_IP;
+var TARGET_URL_PREFIX;
 var DEV = true;
 if (process.env.NODE_ENV == 'development') {
     TARGET_IP = '10.12.143.85';
+    TARGET_URL_PREFIX = 'http://' + TARGET_IP +'/static/'
 } else {
     DEV = false;
     TARGET_IP = '10.11.201.212';
+    TARGET_URL_PREFIX = 'http://wan.sogou.com/static/';
 }
 
 router.get('/', function(req, res) {
@@ -141,7 +144,8 @@ router.post('/create', function(req, res) {
     ], function(err) {
         return res.json({
             status: err ? -1 : 0,
-            msg: err ? err.message : 'success'
+            msg: err ? err.message : 'success',
+            url:TARGET_URL_PREFIX + f +'/' +  payload.pageName +'.html'
         });
     });
 

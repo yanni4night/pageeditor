@@ -13,7 +13,7 @@
       {{#fields}}
       <div class="row">
           {{#string}}
-          <input type="text" name="{{name}}" required="required" data-type="{{string}}" placeholder="{{desc}}"/><b class="tip"></b>
+          <input type="text" name="{{name}}" data-type="{{string}}" placeholder="{{desc}}"/><b class="tip"></b>
           {{/string}}
 
           {{#color}}
