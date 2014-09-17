@@ -18,7 +18,7 @@
 
           {{#color}}
           <label for="">{{desc}}</label>
-          <input type="color" name="{{name}}" required="required"/>
+          <input type="color" name="{{name}}"/>
           {{/color}}
 
           {{#boolean}}
