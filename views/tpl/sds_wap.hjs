@@ -45,24 +45,27 @@
     <body>
         <div>
             <div class="top">
-                <a id="Link" class="link" href="{{downloadUrl}}" target="_blank"></a>
+                <a id="Link" class="link" href="{{downloadUrl}}" target="_blank" pbtag="下载"></a>
             </div>
             {{#hasBottom}}
             <div class="bottom"></div>
             {{/hasBottom}}
         </div>
     </body>
-    <script src="http://p0.123.sogou.com/u/js/mursa.js"></script>
     <script type="text/javascript">
-        window.pageCode = new Date().getFullYear() + '_sds_wap_{{pageName}}';
+        var apkid=(location.search.match(/apk=(\d+)/i)||[0,0])[1];
+        window.pageCode = new Date().getFullYear() + '_sds_wap_{{pageName}}' +( apkid?('_'+apkid):'');
         var spb_vars = {
             productid: "wan",
             ptype: "wap-game",
             pcode: pageCode
         }
     </script>
-    <!--script type="text/xjavascript">
-    document.getElementById('Link').href = 'http://img.wan.sogou.com/dl/150/hjsds_shouyousem_'+ location.search.match(/apk=(\d+)/i)[1] +'.apk';
-    </script-->
+    <script type="text/javascript">
+    var downloadUrl = "{{downloadUrl}}";
+    if(~downloadUrl.indexOf('{apkid}')){
+        document.getElementById('Link').href = downloadUrl.replace('{apkid}',apkid);
+    }
+    </script>
     <script src="http://d.123.sogou.com/u/pb/pb.580599.js"></script>
 </html>
