@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta id="viewport" name="viewport"
+              content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <title>{{gameName}}  ——搜狗游戏</title>
+        <meta name="copyright" content="sogou.com"/>
+        <meta name="keywords" content="搜狗游戏,搜狗活动,sogougame,{{gameName}},{{pageName}}"/>
+        <style type="text/css">
+         html, body, div, span, a,ol, ul, li{
+             margin: 0;
+             padding: 0;
+             border: 0;
+             font-size: 100%;
+             vertical-align: baseline;
+         }
+         body {line-height: 1;}
+         ol, ul {list-style: none;}
+         body{font:12px/20px "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1","Microsoft JhengHei",Tahoma,Verdana,Arial,sans-serif ;background-color: {{bgColor}};text-align:center;}
+         img{border:0;max-width: 320px;}
+        </style>
+    </head>
+    <body>
+        <a id="Link" class="link" href="{{downloadUrl}}" target="_blank" pbtag="下载">
+            <img src="{{bg}}" alt="{{gameName}}">
+        </a>
+    </body>
+    <script type="text/javascript">
+        var apkid=(location.search.match(/apk=(\d+)/i)||[0,0])[1];
+        window.pageCode = new Date().getFullYear() + '_sds_wap_{{pageName}}' +( apkid?('_'+apkid):'');
+        var spb_vars = {
+            productid: "wan",
+            ptype: "wap-game",
+            pcode: pageCode
+        }
+    </script>
+    <script type="text/javascript">
+    var downloadUrl = "{{downloadUrl}}";
+    if(~downloadUrl.indexOf('{apkid}')){
+        document.getElementById('Link').href = downloadUrl.replace('{apkid}',apkid);
+    }
+    </script>
+    <script src="http://d.123.sogou.com/u/pb/pb.580599.js"></script>
+</html>
